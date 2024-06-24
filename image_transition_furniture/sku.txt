@@ -1,0 +1,4 @@
+#sku for reference design
+IN3634
+IN3662
+IN3694
