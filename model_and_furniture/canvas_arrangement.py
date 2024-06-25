@@ -6,7 +6,7 @@ from reading_alfa_channel_image import cleanBagImage
 
 
 CAVAS_IMG_PATH = 'data/image.jpeg'
-MODEL_IMG_PATH = 'data/cropped_mode_denoised.png'
+MODEL_IMG_PATH = 'data/hi-res.jpeg'
 FURNITURE_IMG_PATH = 'data/fur1.jpeg'
 
 
@@ -29,6 +29,9 @@ canvas = np.ones((height, width, 3), np.uint8)*255
 
 #read the model image
 modelImage = cv2.imread(MODEL_IMG_PATH)
+
+#scale the model image to the height of the canvas
+modelImage = cv2.resize(modelImage, (int(modelImage.shape[1]*height/modelImage.shape[0]), height))
 
 #model height to pixel ratio
 RATIO = modelImage.shape[0]/MODEL_HEIGHT
